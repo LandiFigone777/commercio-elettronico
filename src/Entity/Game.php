@@ -31,6 +31,9 @@ class Game
     #[ORM\Column]
     private array $console = [];
 
+    #[ORM\Column(length: 255)]
+    private ?string $genre = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +107,18 @@ class Game
     public function setConsole(array $console): static
     {
         $this->console = $console;
+
+        return $this;
+    }
+
+    public function getGenre(): ?string
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(string $genre): static
+    {
+        $this->genre = $genre;
 
         return $this;
     }
